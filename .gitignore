@@ -1,0 +1,23 @@
+# Ignore bundler config.
+/.bundle
+
+# Ignore npm packages
+node_modules/
+
+# Ignore Webpack Bundle
+bundle.js
+bundle.js.map
+
+# Ignore all logfiles and tempfiles.
+/log/*
+/tmp/*
+!/log/.keep
+!/tmp/.keep
+
+# Ignore debugging history file.
+.byebug_history
+npm-debug.log
+
+# Random
+.DS_Store
+.eslintrc
