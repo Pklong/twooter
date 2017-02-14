@@ -8,12 +8,12 @@ const nullUser = Object.freeze({
   errors: [],
 });
 
-const userReducer = (state = nullUser, action) => {
+const SessionReducer = (state = nullUser, action) => {
   Object.freeze(state);
   switch (action.type) {
     case RECEIVE_CURRENT_USER: {
-      const user = action.currentUser;
-      return Object.assign({}, nullUser, { user });
+      const currentUser = action.currentUser;
+      return Object.assign({}, nullUser, { currentUser });
     }
     case LOGOUT:
       return Object.assign({}, nullUser);
@@ -26,4 +26,4 @@ const userReducer = (state = nullUser, action) => {
   }
 };
 
-export default userReducer;
+export default SessionReducer;
