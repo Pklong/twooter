@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { signup, login } from '../../actions/user_actions';
 
@@ -37,7 +37,7 @@ class UserForm extends Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.processForm(this.state).then(
-      () => this.props.router.push('/'),
+      () => this.props.router.push('/users'),
       () => this.setState({ name: '', password: '' }),
     );
   }
@@ -70,5 +70,20 @@ class UserForm extends Component {
     );
   }
 }
+
+UserForm.propTypes = {
+  processForm: PropTypes.func.isRequired,
+  location: PropTypes.shape({
+    pathname: PropTypes.string.isRequired,
+  }).isRequired,
+  router: PropTypes.shape({
+    push: PropTypes.func.isRequired,
+  }).isRequired,
+  errors: PropTypes.arrayOf(PropTypes.string),
+};
+
+UserForm.defaultProps = {
+  errors: [''],
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(UserForm);

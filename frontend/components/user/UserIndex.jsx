@@ -1,9 +1,6 @@
-import React from 'react';
+import React, { Component, PropTypes } from 'react';
 
-class UserIndex extends React.Component {
-  constructor(props) {
-    super(props);
-  }
+class UserIndex extends Component {
   componentDidMount() {
     this.props.fetchUsers();
   }
@@ -18,8 +15,11 @@ class UserIndex extends React.Component {
 }
 
 UserIndex.propTypes = {
-  fetchUsers: React.PropTypes.func,
-  users: React.PropTypes.arrayOf(React.PropTypes.object),
+  fetchUsers: PropTypes.func.isRequired,
+  users: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    name: PropTypes.string.isRequired,
+  }).isRequired).isRequired,
 };
 
 export default UserIndex;
