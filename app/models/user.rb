@@ -5,6 +5,8 @@ class User < ApplicationRecord
   validates :session_token, presence: true, uniqueness: true
   validates :name, presence: true, uniqueness: true
 
+  has_many :woots
+
   after_initialize :ensure_session_token
 
   def self.find_by_credentials name, password
