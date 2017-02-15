@@ -1,6 +1,6 @@
 class Api::WootsController < ApplicationController
   def index
-    @woots = Woot.all
+    @woots = Woot.all.includes(:user)
   end
 
   def show
