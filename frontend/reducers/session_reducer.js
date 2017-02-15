@@ -1,7 +1,7 @@
 import {
   RECEIVE_CURRENT_USER,
   RECEIVE_ERRORS,
-  LOGOUT } from '../actions/user_actions';
+} from '../actions/user_actions';
 
 const nullUser = Object.freeze({
   currentUser: null,
@@ -15,8 +15,6 @@ const SessionReducer = (state = nullUser, action) => {
       const currentUser = action.currentUser;
       return Object.assign({}, nullUser, { currentUser });
     }
-    case LOGOUT:
-      return Object.assign({}, nullUser);
     case RECEIVE_ERRORS: {
       const errors = action.errors;
       return Object.assign({}, nullUser, { errors });
