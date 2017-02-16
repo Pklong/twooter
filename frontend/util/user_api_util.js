@@ -21,4 +21,5 @@ export const logout = () => (
   })
 );
 
-export const fetchUsers = () => $.ajax('api/users');
+export const fetchUsers = () => $.ajax('/api/users');
+export const fetchUser = name => $.ajax(`/api/users/${name}`);

@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router';
 
 import { fetchWoots } from '../../actions/woot_actions';
 
@@ -17,8 +18,13 @@ class WootIndex extends Component {
   }
 
   render() {
-    const woots = this.props.woots.map(w => <li key={w.id}>{w.body}</li>);
-
+    const woots = this.props.woots.map((w) => {
+      return (
+        <li key={w.id}>{w.body}
+          <Link to={`/users/${w.author}`}>{w.author}</Link>
+        </li>
+      );
+    });
     return (
       <ul>
         { woots }

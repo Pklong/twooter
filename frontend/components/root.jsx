@@ -4,6 +4,7 @@ import { Provider } from 'react-redux';
 import UserForm from './user/UserForm';
 import UserIndexContainer from './user/UserIndexContainer';
 import WootIndexContainer from './woots/WootsIndexContainer';
+import UserShowContainer from './user/UserShowContainer';
 
 const NotFound = () => (
   <h1>404 Buddy!</h1>
@@ -30,6 +31,7 @@ const Root = ({ store }) => {
         <Route path="/" component={UserForm} onEnter={redirectIfLoggedIn} />
         <Route path="/signup" component={UserForm} onEnter={redirectIfLoggedIn} />
         <Route path="/users" component={UserIndexContainer} onEnter={redirectIfLoggedOut} />
+        <Route path="/users/:name" component={UserShowContainer} />
         <Route path="/woots" component={WootIndexContainer} onEnter={redirectIfLoggedOut} />
         <Route path="*" component={NotFound} />
       </Router>
