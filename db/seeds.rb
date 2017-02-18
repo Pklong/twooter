@@ -11,3 +11,5 @@ users = [
 40.times do |x|
   users[rand(users.length)].woots.create!(body: Faker::Hacker.say_something_smart)
 end
+
+users.each { |x| x.twoots.create!(woot_id: Woot.last.id) }
