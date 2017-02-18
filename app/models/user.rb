@@ -6,6 +6,7 @@ class User < ApplicationRecord
   validates :name, presence: true, uniqueness: true
 
   has_many :woots, dependent: :destroy
+  has_many :twoots, dependent: :destroy
 
   after_initialize :ensure_session_token
 
