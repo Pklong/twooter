@@ -21,8 +21,10 @@ class Api::UsersController < ApplicationController
   end
 
   def index
-    @users = User.all
+    @users = User.all.includes(:woots)
   end
+
+    private
 
     def user_params
       params.require(:user).permit(:name, :password)

@@ -1,22 +1,37 @@
-import React from 'react';
+import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 import { logout } from '../../actions/user_actions';
+
+const mapStateToProps = state => ({
+  loggedIn: Boolean(state.session.currentUser),
+});
 
 const mapDispatchToProps = dispatch => ({
   destroySession: () => dispatch(logout()),
 });
 
-const LogOut = ({ router, destroySession }) => {
-  const whatever = () => destroySession().then(() => {
-    router.push('/')
-  });
+class LogOut extends Component {
+  constructor() {
+    super();
+    this.leave = this.leave.bind(this);
+  }
+  leave() {
+    const { destroySession, router } = this.props;
+    destroySession().then(() => {
+      router.push('/');
+    });
+  }
+  render() {
+    if (this.props.loggedIn) {
+      return (
+        <button onClick={this.leave}>
+          Log Out
+        </button>
+      );
+    }
+    return null;
+  }
+}
 
-  return (
-    <button onClick={whatever}>
-      Log Out
-    </button>
-  );
-};
-
-export default withRouter(connect(null, mapDispatchToProps)(LogOut));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(LogOut));

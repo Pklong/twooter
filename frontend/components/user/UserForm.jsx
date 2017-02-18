@@ -37,7 +37,7 @@ class UserForm extends Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.processForm(this.state).then(
-      () => this.props.router.push('/users'),
+      () => this.props.router.push('/woots'),
       () => this.setState({ name: '', password: '' }),
     );
   }
@@ -64,7 +64,7 @@ class UserForm extends Component {
             placeholder="password?"
             value={this.state.password}
           />
-          <input type="submit" value="Sign Up" />
+          <input type="submit" value="Log In" />
         </form>
       </article>
     );

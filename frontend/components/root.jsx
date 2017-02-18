@@ -1,6 +1,7 @@
 import React from 'react';
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 import { Provider } from 'react-redux';
+import App from './App';
 import UserForm from './user/UserForm';
 import UserIndexContainer from './user/UserIndexContainer';
 import WootIndexContainer from './woots/WootsIndexContainer';
@@ -14,7 +15,7 @@ const Root = ({ store }) => {
   function redirectIfLoggedIn(_, replace) {
     const currentUser = store.getState().session.currentUser;
     if (currentUser) {
-      replace('/users');
+      replace('/woots');
     }
   }
 
@@ -28,11 +29,13 @@ const Root = ({ store }) => {
   return (
     <Provider store={store}>
       <Router history={browserHistory}>
-        <Route path="/" component={UserForm} onEnter={redirectIfLoggedIn} />
-        <Route path="/signup" component={UserForm} onEnter={redirectIfLoggedIn} />
-        <Route path="/users" component={UserIndexContainer} onEnter={redirectIfLoggedOut} />
-        <Route path="/users/:name" component={UserShowContainer} />
-        <Route path="/woots" component={WootIndexContainer} onEnter={redirectIfLoggedOut} />
+        <Route path="/" component={App} >
+          <IndexRoute component={UserForm} />
+          <Route path="signup" component={UserForm} onEnter={redirectIfLoggedIn} />
+          <Route path="users" component={UserIndexContainer} />
+          <Route path="users/:name" component={UserShowContainer} />
+          <Route path="woots" component={WootIndexContainer} onEnter={redirectIfLoggedOut} />
+        </Route>
         <Route path="*" component={NotFound} />
       </Router>
     </Provider>
