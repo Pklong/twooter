@@ -11,7 +11,7 @@ class Api::WootsController < ApplicationController
     @woot = Woot.new(woot_params)
     @woot.user_id = current_user.id
     if @woot.save
-      render json: show
+      render :show
     else
       render json: @woot.errors, status: 422
     end

@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
-
+import WootFormContainer from './WootFormContainer';
 import { fetchWoots } from '../../actions/woot_actions';
 
 const mapStateToProps = ({ woots }) => ({
@@ -26,9 +26,12 @@ class WootIndex extends Component {
       );
     });
     return (
-      <ul>
-        { woots }
-      </ul>
+      <article>
+        <WootFormContainer />
+        <ul>
+          { woots }
+        </ul>
+      </article>
     );
   }
 }

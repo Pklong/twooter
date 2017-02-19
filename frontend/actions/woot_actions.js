@@ -30,6 +30,11 @@ export const fetchWoot = wootId => dispatch => (
     .then(woot => dispatch(receiveWoot(woot)))
 );
 
+export const createWoot = woot => dispatch => (
+  WootAPIUtil.createWoot(woot)
+    .then(newWoot => dispatch(receiveWoot(newWoot)))
+);
+
 export const destroyWoot = wootId => dispatch => (
   WootAPIUtil.destroyWoot(wootId)
     .then(() => dispatch(removeWoot(wootId)))

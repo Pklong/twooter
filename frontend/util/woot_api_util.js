@@ -12,3 +12,11 @@ export const destroyWoot = wootId => (
     method: 'delete',
   })
 );
+
+export const createWoot = woot => (
+  $.ajax({
+    url: 'api/woots',
+    method: 'post',
+    data: { woot },
+  })
+);
