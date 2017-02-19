@@ -26,7 +26,7 @@ const WootsReducer = (state = defaultState, action) => {
     case DELETE_WOOT: {
       const newState = Object.assign({}, state);
       delete newState.byId[action.wootId];
-      newState.allIds = newState.allIds.filter(id => id !== action.wootId);
+      newState.allIds = newState.allIds.filter(id => +id !== action.wootId);
       return newState;
     }
 
