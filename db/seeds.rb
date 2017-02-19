@@ -12,4 +12,10 @@ users = [
   users[rand(users.length)].woots.create!(body: Faker::Hacker.say_something_smart)
 end
 
-users.each { |x| x.twoots.create!(woot_id: Woot.last.id) }
+10.times do |x|
+  users[rand(users.length)].twoots.create!(woot_id: rand(Woot.all.count))
+end
+
+10.times do |x|
+  users[rand(users.length)].likes.create!(woot_id: rand(Woot.all.count))
+end
