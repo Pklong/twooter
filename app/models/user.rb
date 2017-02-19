@@ -7,6 +7,7 @@ class User < ApplicationRecord
 
   has_many :woots, dependent: :destroy
   has_many :twoots, dependent: :destroy
+  has_many :twooted_woots, through: :twoots, source: :woot
 
   after_initialize :ensure_session_token
 
