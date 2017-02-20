@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     get 'users/:name', to: 'users#show'
     resources :woots, except: [:new, :edit, :update]
     resources :twoots, only: [:create, :destroy]
+    resources :likes, only: [:create, :destroy]
     resource :session, only: [:create, :destroy]
   end
   get "/*path", to: "static_pages#root"
