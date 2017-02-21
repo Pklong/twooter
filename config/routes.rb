@@ -3,8 +3,7 @@ Rails.application.routes.draw do
   namespace :api, defaults: { format: :json } do
     resources :users, only: [:create, :index]
     get 'users/:name', to: 'users#show'
-    resources :woots, except: [:new, :edit, :update]
-    resources :twoots, only: [:create, :destroy]
+    resources :twoots, except: [:new, :edit, :update]
     resources :likes, only: [:create, :destroy]
     resource :session, only: [:create, :destroy]
   end

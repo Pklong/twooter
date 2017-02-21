@@ -16,7 +16,7 @@ export const receiveTwoots = twoots => ({
 });
 
 export const removeTwoot = twootId => ({
-  type: DELETE_WOOT,
+  type: DELETE_TWOOT,
   twootId,
 });
 
@@ -37,5 +37,5 @@ export const createTwoot = twoot => dispatch => (
 
 export const destroyTwoot = twootId => dispatch => (
   TwootAPIUtil.destroyTwoot(twootId)
-    .then(() => dispatch(removeTwoot(wootId)))
+    .then(() => dispatch(removeTwoot(twootId)))
 );

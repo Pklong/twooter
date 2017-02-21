@@ -1,12 +1,12 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import { createWoot } from '../../actions/twoot_actions';
+import { createTwoot } from '../../actions/twoot_actions';
 
 const mapDispatchToProps = dispatch => ({
-  createTwoot: (woot) => dispatch(createTwoot(twoot))
+  createTwoot: (twoot) => dispatch(createTwoot(twoot))
 });
 
-class WootForm extends Component {
+class TwootForm extends Component {
   constructor() {
     super();
     this.submit = this.submit.bind(this);
@@ -30,7 +30,7 @@ class WootForm extends Component {
           placeholder="What's happening?"
           value={this.state.body}></textarea>
         <input
-          type="submit" value="Tweet"
+          type="submit" value="Twoot"
         />
       </form>
     );

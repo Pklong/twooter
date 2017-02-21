@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import TwootFormContainer from './TwootFormContainer';
-import { fetchTwoots, destroyTwoot } from '../../actions/woot_actions';
+import { fetchTwoots, destroyTwoot } from '../../actions/twoot_actions';
 
 const mapStateToProps = ({ twoots, session }) => ({
   twoots: twoots.allIds.map(wId => twoots.byId[wId]),
@@ -31,7 +31,7 @@ class TwootIndex extends Component {
     const mappedTwoots = twoots.map((t) => {
       let deleteBtn;
       if (currentUserId === t.user_id) {
-        deleteBtn = <button onClick={this.deleteWoot(t.id)}>Delete Woot</button>;
+        deleteBtn = <button onClick={this.deleteTwoot(t.id)}>Delete Twoot</button>;
       } else {
         deleteBtn = null;
       }
@@ -53,7 +53,7 @@ class TwootIndex extends Component {
   }
 }
 
-WootIndex.propTypes = {
+TwootIndex.propTypes = {
   fetchTwoots: PropTypes.func.isRequired,
   twoots: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.number.isRequired,

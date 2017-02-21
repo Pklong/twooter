@@ -37,7 +37,7 @@ class UserForm extends Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.processForm(this.state).then(
-      () => this.props.router.push('/woots'),
+      () => this.props.router.push('/twoots'),
       () => this.setState({ name: '', password: '' }),
     );
   }

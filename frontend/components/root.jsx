@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 import App from './App';
 import UserForm from './user/UserForm';
 import UserIndexContainer from './user/UserIndexContainer';
-import TwootIndexContainer from './woots/TwootsIndexContainer';
+import TwootIndexContainer from './twoots/TwootsIndexContainer';
 import UserShowContainer from './user/UserShowContainer';
 
 const NotFound = () => (

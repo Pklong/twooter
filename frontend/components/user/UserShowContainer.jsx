@@ -15,11 +15,11 @@ class UserShow extends Component {
     this.props.fetchUser(this.props.params.name);
   }
   render() {
-    const { name, wootCount } = this.props.userDetail;
+    const { name, twootCount } = this.props.userDetail;
     return (
       <article>
         <p>{name}</p>
-        <p>WOOTS: {wootCount}</p>
+        <p>TWOOTS: {twootCount}</p>
       </article>
     );
   }
