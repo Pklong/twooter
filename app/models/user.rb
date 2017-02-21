@@ -6,10 +6,8 @@ class User < ApplicationRecord
   validates :name, presence: true, uniqueness: true
 
   has_many :woots, dependent: :destroy
-  has_many :twoots, dependent: :destroy
   has_many :likes, dependent: :destroy
   has_many :liked_woots, through: :likes, source: :woot
-  has_many :twooted_woots, through: :twoots, source: :woot
 
   after_initialize :ensure_session_token
 
