@@ -1,9 +1,9 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import { createWoot } from '../../actions/woot_actions';
+import { createWoot } from '../../actions/twoot_actions';
 
 const mapDispatchToProps = dispatch => ({
-  createWoot: (woot) => dispatch(createWoot(woot))
+  createTwoot: (woot) => dispatch(createTwoot(twoot))
 });
 
 class WootForm extends Component {
@@ -17,7 +17,7 @@ class WootForm extends Component {
   }
   submit(e) {
     e.preventDefault();
-    this.props.createWoot(this.state).then(() => this.setState({ body: '' }));
+    this.props.createTwoot(this.state).then(() => this.setState({ body: '' }));
   }
   handleInput(e) {
     this.setState({ body: e.currentTarget.value });
@@ -37,4 +37,4 @@ class WootForm extends Component {
   }
 }
 
-export default connect(null, mapDispatchToProps)(WootForm);
+export default connect(null, mapDispatchToProps)(TwootForm);

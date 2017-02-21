@@ -1,2 +1,2 @@
-module Api::WootsHelper
+module Api::TwootsHelper
 end

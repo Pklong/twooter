@@ -1,41 +1,41 @@
-import * as WootAPIUtil from '../util/woot_api_util';
+import * as TwootAPIUtil from '../util/twoot_api_util';
 
 
-export const RECEIVE_ALL_WOOTS = 'RECEIVE_ALL_WOOTS';
-export const RECEIVE_WOOT = 'RECEIVE_WOOT';
-export const DELETE_WOOT = 'DELETE_WOOT';
+export const RECEIVE_ALL_TWOOTS = 'RECEIVE_ALL_TWOOTS';
+export const RECEIVE_TWOOT = 'RECEIVE_TWOOT';
+export const DELETE_TWOOT = 'DELETE_TWOOT';
 
-export const receiveWoot = woot => ({
-  type: RECEIVE_WOOT,
-  woot,
+export const receiveTwoot = twoot => ({
+  type: RECEIVE_TWOOT,
+  twoot,
 });
 
-export const receiveWoots = woots => ({
-  type: RECEIVE_ALL_WOOTS,
-  woots,
+export const receiveTwoots = twoots => ({
+  type: RECEIVE_ALL_TWOOTS,
+  twoots,
 });
 
-export const removeWoot = wootId => ({
+export const removeTwoot = twootId => ({
   type: DELETE_WOOT,
-  wootId,
+  twootId,
 });
 
-export const fetchWoots = () => dispatch => (
-  WootAPIUtil.fetchWoots()
-    .then(woots => dispatch(receiveWoots(woots)))
+export const fetchTwoots = () => dispatch => (
+  TwootAPIUtil.fetchTwoots()
+    .then(twoots => dispatch(receiveTwoots(twoots)))
 );
 
-export const fetchWoot = wootId => dispatch => (
-  WootAPIUtil.fetchWoot(wootId)
-    .then(woot => dispatch(receiveWoot(woot)))
+export const fetchTwoot = twootId => dispatch => (
+  TwootAPIUtil.fetchTwoot(twootId)
+    .then(twoot => dispatch(receiveTwoot(twoot)))
 );
 
-export const createWoot = woot => dispatch => (
-  WootAPIUtil.createWoot(woot)
-    .then(newWoot => dispatch(receiveWoot(newWoot)))
+export const createTwoot = twoot => dispatch => (
+  TwootAPIUtil.createTwoot(twoot)
+    .then(newTwoot => dispatch(receiveTwoot(newTwoot)))
 );
 
-export const destroyWoot = wootId => dispatch => (
-  WootAPIUtil.destroyWoot(wootId)
-    .then(() => dispatch(removeWoot(wootId)))
+export const destroyTwoot = twootId => dispatch => (
+  TwootAPIUtil.destroyTwoot(twootId)
+    .then(() => dispatch(removeTwoot(wootId)))
 );

@@ -21,7 +21,7 @@ class Api::UsersController < ApplicationController
   end
 
   def index
-    @users = User.all.includes(:woots)
+    @users = User.all.includes(:twoots)
   end
 
     private

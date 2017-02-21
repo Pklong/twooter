@@ -1,6 +1,6 @@
 FactoryGirl.define do
-  factory :woot do
-    author_id 1
+  factory :twoot do
+    user_id 1
     body "MyString"
   end
 end

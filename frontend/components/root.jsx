@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 import App from './App';
 import UserForm from './user/UserForm';
 import UserIndexContainer from './user/UserIndexContainer';
-import WootIndexContainer from './woots/WootsIndexContainer';
+import TwootIndexContainer from './woots/TwootsIndexContainer';
 import UserShowContainer from './user/UserShowContainer';
 
 const NotFound = () => (
@@ -15,7 +15,7 @@ const Root = ({ store }) => {
   function redirectIfLoggedIn(_, replace) {
     const currentUser = store.getState().session.currentUser;
     if (currentUser) {
-      replace('/woots');
+      replace('/twoots');
     }
   }
 
@@ -34,7 +34,7 @@ const Root = ({ store }) => {
           <Route path="signup" component={UserForm} onEnter={redirectIfLoggedIn} />
           <Route path="users" component={UserIndexContainer} />
           <Route path="users/:name" component={UserShowContainer} />
-          <Route path="woots" component={WootIndexContainer} onEnter={redirectIfLoggedOut} />
+          <Route path="twoots" component={TwootIndexContainer} onEnter={redirectIfLoggedOut} />
         </Route>
         <Route path="*" component={NotFound} />
       </Router>

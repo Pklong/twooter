@@ -9,13 +9,5 @@ users = [
 ]
 
 40.times do |x|
-  users[rand(users.length)].woots.create!(body: Faker::Hacker.say_something_smart)
-end
-
-10.times do |x|
-  users[rand(users.length)].twoots.create!(woot_id: rand(Woot.all.count))
-end
-
-10.times do |x|
-  users[rand(users.length)].likes.create!(woot_id: rand(Woot.all.count))
+  users[rand(users.length)].twoots.create!(body: Faker::Hacker.say_something_smart)
 end
