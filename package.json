@@ -13,7 +13,8 @@
   "scripts": {
     "test": "jest",
     "webpack": "./node_modules/.bin/webpack --watch",
-    "postinstall": "./node_modules/.bin/webpack"
+    "postinstall": "./node_modules/.bin/webpack",
+    "heroku-postbuild": "./node_modules/.bin/webpack --config webpack.config.prod.js"
   },
   "keywords": [],
   "author": "",
