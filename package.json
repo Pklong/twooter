@@ -1,10 +1,14 @@
 {
   "name": "twooter",
   "version": "1.0.0",
-  "description": "TODO",
+  "description": "Nice blog app",
   "main": "webpack.config.js",
   "directories": {
     "test": "test"
+  },
+  "engines": {
+  "node": "7.3.0",
+  "npm": "3.10.x"
   },
   "scripts": {
     "test": "jest",
