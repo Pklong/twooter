@@ -18,7 +18,7 @@ export const logout = () => {
   })
 }
 
-export const createUser = (name, pw) => {
+export const signup = (name, pw) => {
   return axios({
     method: 'POST',
     url: '/api/users',

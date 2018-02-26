@@ -1,9 +1,28 @@
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
-import * as API from './util/user-api'
+import createStore from './store/store'
+import Root from './components/root.js'
+import * as API from './actions/session'
 
 document.addEventListener('DOMContentLoaded', () => {
-  const root = document.querySelector('#root')
+  let store
+
+  if (window.currentUser !== undefined) {
+    const { id } = window.currentUser
+
+    store = createStore({
+      session: { userId: id },
+      users: { [id]: window.currentUser }
+    })
+
+    delete window.currentUser
+  } else {
+    store = createStore({})
+  }
+
+  window.store = store
   window.API = API
-  ReactDOM.render(<h1>HI</h1>, root)
+
+  const root = document.querySelector('#root')
+  ReactDOM.render(<Root store={store} />, root)
 })

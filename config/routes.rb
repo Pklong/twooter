@@ -7,4 +7,6 @@ Rails.application.routes.draw do
       resources :users, param: :name, except: [:new, :edit]
     end
   end
+
+  get '*path', to: 'static_pages#root'
 end
