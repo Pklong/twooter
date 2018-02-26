@@ -23,14 +23,18 @@
     "test": "test"
   },
   "scripts": {
-    "webpack": "webpack --watch"
+      "webpack": "webpack --watch",
+      "test": "jest",
+      "test:watch": "npm test -- --watch"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "babel-jest": "^22.4.1",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "jest": "^22.4.2",
     "redux-logger": "^3.0.6"
   }
 }
