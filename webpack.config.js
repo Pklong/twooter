@@ -1,7 +1,7 @@
 const path = require('path')
 
 module.exports = {
-  entry: './frontend/twitter.js',
+  entry: './frontend/twooter.js',
   output: {
     path: path.resolve(__dirname, 'app', 'assets', 'javascripts'),
     filename: 'bundle.js'
