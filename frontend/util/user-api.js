@@ -18,11 +18,11 @@ export const logout = () => {
   })
 }
 
-export const signup = (name, pw) => {
+export const signup = user => {
   return axios({
     method: 'POST',
     url: '/api/users',
-    data: { user: { name, password: pw } },
+    data: user,
     headers: setCSRF()
   })
 }
