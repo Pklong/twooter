@@ -5,11 +5,8 @@ import { login, signup } from '../../actions/session'
 class AuthForm extends Component {
   state = {
     name: '',
-    password: '',
-    imgSrc: ''
+    password: ''
   }
-
-  action = this.props.location.pathname.slice(1)
 
   onFieldChange = field => {
     return e => this.setState({ [field]: e.target.value })
@@ -21,8 +18,7 @@ class AuthForm extends Component {
     const { name, password } = this.state
     user.append('user[name]', name)
     user.append('user[password]', password)
-    user.append('user[avatar]', this.fileInput.files[0])
-    this.props[this.action](user)
+    this.props[this.props.action](user)
   }
 
   onFileChange = () => {
@@ -44,20 +40,15 @@ class AuthForm extends Component {
           name="password"
           onChange={this.onFieldChange('password')}
         />
-        <label htmlFor="file">Upload a picture</label>
-        <input
-          type="file"
-          ref={input => {
-            this.fileInput = input
-          }}
-          name="file"
-          onChange={this.onFileChange}
-        />
-        {this.state.img !== '' && <img src={this.state.img} />}
-        <input type="submit" value={this.action} />
+        <input type="submit" value={this.props.action} />
       </form>
     )
   }
 }
 
-export default connect(null, { login, signup })(AuthForm)
+const LoginForm = () => <AuthForm action="login" />
+
+const SignupForm = () => <AuthForm action="signup" />
+
+export const Login = connect(null, { login })(LoginForm)
+export const Signup = connect(null, { signup })(SignupForm)
