@@ -6,4 +6,7 @@ RSpec.describe User, type: :model do
     expect(FactoryBot.create(:user)).to be_valid
   end
   it { should validate_presence_of(:name) }
+  it { should have_attached_file(:avatar) }
+  it { should validate_attachment_content_type(:avatar).
+                allowing('image/png', 'image/gif', 'image/jpeg') }
 end
