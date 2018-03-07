@@ -13,6 +13,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'bcrypt', '~> 3.1.7'
 gem 'paperclip', '~> 5.2.1'
 gem 'aws-sdk', '~> 2.3.0'
+gem 'uglifier'
 gem 'figaro'
 
 group :development, :test do
