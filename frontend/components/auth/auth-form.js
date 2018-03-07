@@ -28,19 +28,22 @@ class AuthForm extends Component {
   }
 
   render() {
+    const { action } = this.props
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form className={action} onSubmit={this.handleSubmit}>
         <input
           type="text"
           name="name"
+          placeholder="Username"
           onChange={this.onFieldChange('name')}
         />
         <input
           type="password"
           name="password"
+          placeholder="Password"
           onChange={this.onFieldChange('password')}
         />
-        <input type="submit" value={this.props.action} />
+        <input type="submit" value={action} />
       </form>
     )
   }

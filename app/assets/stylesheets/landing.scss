@@ -1,12 +1,38 @@
-.container {
+.landing-container {
   display: flex;
   width: 100vw;
   height: 100vh;
   background: red;
   justify-content: space-between;
+  input[type="text"], input[type="password"] {
+    display: inline-block;
+    padding: 12px;
+    border-radius: 3px;
+    border: 1px solid #e6ecf0;
+    background-color: #fff;
+    margin: 8px 0;
+  }
+  input[type="submit"] {
+    cursor: pointer;
+    background-color: #fff;
+    border: 1px solid #1da1f2;
+    color: #1da1f2;
+    font-size: 14px;
+    line-height: 20px;
+    border-radius: 100px;
+    whitespace: nowrap;
+    font-weight: 700;
+    text-align: center;
+    padding: 12px;
+  }
 }
 
-.container__left {
+.logo__small {
+  height: 60px;
+  width: 60px;
+}
+
+.landing-container__left {
   flex: 1;
   display: flex;
   background: blue;
@@ -26,9 +52,41 @@
   }
 }
 
+.landing-container__welcome {
+  max-width: 350px;
+  flex-grow: 2;
+}
 
-.container__right {
+
+.landing-container__right {
   display: flex;
   flex: 1;
   flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  .login {
+    flex-grow: 1;
+    padding: 20px;
+    input {
+      margin-left: 10px;
+    }
+  }
+  .signup {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    input[type="submit"] {
+      color: #fff;
+      background-color: #1da1f2;
+    }
+  }
+  h1 {
+    font-size: 27px;
+    line-height: 32px;
+  }
+  h2 {
+    color: #14171a;
+    font-size: 18px;
+    line-height: 24px;
+  }
 }
