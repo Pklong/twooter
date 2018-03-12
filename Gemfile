@@ -15,6 +15,7 @@ gem 'paperclip', '~> 5.2.1'
 gem 'aws-sdk', '~> 2.3.0'
 gem 'uglifier'
 gem 'figaro'
+gem 'yajl-ruby', require: 'yajl'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
