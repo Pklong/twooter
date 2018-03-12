@@ -20,19 +20,19 @@ const proRoute = ({ component: Component, loggedIn, ...rest }) => (
   />
 )
 
-const authRoute = ({ component: Component, loggedIn, ...rest }) => (
+const authRoute = ({
+  else: UnAuthorizedComponent,
+  if: AuthorizedComponent,
+  loggedIn,
+  ...rest
+}) => (
   <Route
     {...rest}
     render={props => {
       return loggedIn ? (
-        <Redirect
-          to={{
-            pathname: '/users',
-            state: { from: props.location }
-          }}
-        />
+        <AuthorizedComponent {...props} />
       ) : (
-        <Component {...props} />
+        <UnAuthorizedComponent {...props} />
       )
     }}
   />
