@@ -6,3 +6,7 @@ require 'faker'
     password: 'vaulty'
   )
 end
+
+40.times do
+  User.all.sample.twoots.create(body: "#{Faker::Fallout.quote}")
+end
