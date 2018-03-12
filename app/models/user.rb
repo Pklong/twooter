@@ -4,6 +4,10 @@ class User < ApplicationRecord
   attr_reader :password
   validates :password, length: {minimum: 6, allow_nil: true}
 
+  has_many :twoots,
+           class_name: "Twoot",
+           foreign_key: :author_id
+
   has_attached_file :avatar, styles: { medium: "300x300", thumb: "100x100"},
                     default_url: "/images/:style/missing.png"
 
