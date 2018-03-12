@@ -18,6 +18,7 @@ class AuthForm extends Component {
     const { name, password } = this.state
     user.append('user[name]', name)
     user.append('user[password]', password)
+
     this.props[this.props.action](user)
   }
 
@@ -49,9 +50,9 @@ class AuthForm extends Component {
   }
 }
 
-const LoginForm = () => <AuthForm action="login" />
+const LoginForm = p => <AuthForm {...p} action="login" />
 
-const SignupForm = () => <AuthForm action="signup" />
+const SignupForm = p => <AuthForm {...p} action="signup" />
 
 export const Login = connect(null, { login })(LoginForm)
 export const Signup = connect(null, { signup })(SignupForm)

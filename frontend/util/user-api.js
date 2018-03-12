@@ -1,11 +1,11 @@
 import axios from 'axios'
 import setCSRF from './csrf-helper'
 
-export const login = (name, pw) => {
+export const login = user => {
   return axios({
     method: 'POST',
     url: '/api/session',
-    data: { user: { name, password: pw } },
+    data: user,
     headers: setCSRF()
   })
 }

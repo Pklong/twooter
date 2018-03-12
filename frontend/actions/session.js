@@ -12,15 +12,15 @@ export const logoutUser = () => ({
   type: LOGOUT
 })
 
-export const login = (name, pw) => dispatch =>
-  SessionApi.login(name, pw).then(({ data: user }) =>
+export const login = user => dispatch =>
+  SessionApi.login(user).then(({ data: user }) =>
     dispatch(loginUser(user))
   )
 
 export const logout = () => dispatch =>
   SessionApi.logout().then(() => dispatch(logoutUser()))
 
-export const signup = (name, pw) => dispatch =>
-  SessionApi.signup(name, pw).then(({ data: user }) =>
+export const signup = user => dispatch =>
+  SessionApi.signup(user).then(({ data: user }) =>
     dispatch(loginUser(user))
   )
