@@ -29,9 +29,9 @@ class AuthForm extends Component {
   }
 
   render() {
-    const { action } = this.props
-    return (
-      <form className={action} onSubmit={this.handleSubmit}>
+    const { action, errors } = this.props
+    return [
+      <form key="auth" className={action} onSubmit={this.handleSubmit}>
         <input
           type="text"
           name="name"
@@ -45,14 +45,17 @@ class AuthForm extends Component {
           onChange={this.onFieldChange('password')}
         />
         <input type="submit" value={action} />
-      </form>
-    )
+      </form>,
+      <ul key="auth-errors">{errors.map(e => <li key={e}>{e}</li>)}</ul>
+    ]
   }
 }
 
-const LoginForm = p => <AuthForm {...p} action="login" />
+const LoginForm = p => <AuthForm {...p} />
 
-const SignupForm = p => <AuthForm {...p} action="signup" />
-
-export const Login = connect(null, { login })(LoginForm)
-export const Signup = connect(null, { signup })(SignupForm)
+const SignupForm = p => <AuthForm {...p} />
+const mapStateToProps = ({ errors: { session } }, { action }) => {
+  return { errors: session[action] || [] }
+}
+export const Login = connect(mapStateToProps, { login })(LoginForm)
+export const Signup = connect(mapStateToProps, { signup })(SignupForm)
